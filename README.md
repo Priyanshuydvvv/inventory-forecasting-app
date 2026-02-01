@@ -1,45 +1,98 @@
-# Inventory Forecasting System
+# Enterprise Inventory Forecasting & Intelligence System
 
-This project is a web-based inventory forecasting and sales analysis application developed using Python and Streamlit.  
-The main goal of the project is to analyze sales data, visualize important metrics, predict future demand, and check stock availability.
+This project is a web-based inventory analytics and demand forecasting system developed using Python and Streamlit. 
+It helps analyze sales data, forecast future demand, monitor inventory risks, and support business decision-making 
+through an interactive dashboard.
 
-The application is interactive and easy to use, making it suitable for academic and demonstration purposes.
+The application is deployed on the cloud and accessible through a public web link.
 
----
+--------------------------------------------------
 
-## What this project does
+Live Application:
+https://inventory-forecasting-app-hl3nekwuk5yu7w8rzu8kvl.streamlit.app
 
-- Displays total sales, profit, and number of orders
-- Shows sales distribution across different product categories
-- Provides monthly sales trend analysis
-- Identifies top-selling products
-- Predicts future sales using a simple machine learning model
-- Checks inventory stock levels and shows alerts
-- Allows downloading filtered sales data
-- Runs as a live web application
+GitHub Repository:
+https://github.com/Priyanshuydvvv/inventory-forecasting-app
 
----
+--------------------------------------------------
 
-## Tools and Technologies
+Project Objective:
 
-- Python
-- Streamlit
-- Pandas
-- Scikit-learn
-- Matplotlib
+The main objective of this project is to analyze historical sales data, predict future demand using machine learning, 
+monitor inventory risks, and present key business insights through a professional dashboard.
 
----
+--------------------------------------------------
 
-## Dataset Information
+Key Features:
 
-The project uses a Superstore sales dataset containing order details such as order date, sales, profit, product category, and region.  
-The dataset file used in this project is named `Superstore.csv`.
+- Secure login system
+- Executive dashboard with KPIs (Revenue, Profit, Orders, Average Order Value)
+- Interactive date range filtering
+- Sales analysis using line, bar, and pie charts
+- AI-based demand forecasting using Linear Regression
+- Inventory risk monitoring and stock alerts
+- Scenario simulation for demand increase
+- AI decision assistant for business-related questions
+- Downloadable reports in CSV format
+- Modern dark-themed user interface
+- Fully deployed cloud application
 
----
+--------------------------------------------------
 
-## Running the Project Locally
+Technology Stack:
 
-To run the project on a local machine, use the following command:
+- Programming Language: Python
+- Frontend & Backend: Streamlit
+- Data Processing: Pandas, NumPy
+- Machine Learning: Scikit-learn
+- Data Visualization: Matplotlib, Streamlit Charts
+- Deployment: Streamlit Cloud
+- Version Control: GitHub
 
-```bash
-streamlit run app.py
+--------------------------------------------------
+
+Project Structure:
+
+inventory-forecasting-app/
+- app.py
+- Superstore.csv
+- README.md
+
+--------------------------------------------------
+
+Dataset:
+
+The project uses the Superstore Sales Dataset which contains order-level sales data including order dates, product 
+categories, sales values, and profit information. The dataset is filtered dynamically within the application.
+
+--------------------------------------------------
+
+How to Run the Project Locally:
+
+1. Install Python (version 3.10 or higher)
+2. Install required libraries:
+   pip install streamlit pandas scikit-learn matplotlib
+3. Open the project folder
+4. Run the application using:
+   streamlit run app.py
+5. The application will open in the browser
+
+--------------------------------------------------
+
+Login Credentials (Demo):
+
+Username: admin
+Password: admin123
+
+--------------------------------------------------
+
+Project Outcome:
+
+The system successfully provides real-time sales insights, forecasts future demand, identifies inventory risks, 
+and allows users to download reports for decision-making purposes.
+
+--------------------------------------------------
+
+Author:
+
+Priyanshu Yadav
