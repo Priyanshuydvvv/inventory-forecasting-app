@@ -146,7 +146,14 @@ else:
 
         st.markdown("<div class='spacer'></div>", unsafe_allow_html=True)
 
-        monthly = data.set_index("Order Date").resample("M")["Sales"].sum()
+        data["Order Date"] = pd.to_datetime(data["Order Date"], errors="coerce")
+
+monthly = (
+    data.dropna(subset=["Order Date"])
+        .set_index("Order Date")
+        .resample("MS")["Sales"]
+        .sum()
+)
         st.line_chart(monthly)
 
         st.markdown("<div class='spacer'></div>", unsafe_allow_html=True)
