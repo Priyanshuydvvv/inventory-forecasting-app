@@ -170,7 +170,9 @@ def load_data():
 # ================= AUTHENTICATION PORTAL =================
 if not st.session_state.auth:
     st.markdown("<br><br><br><br>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 1.2, 1])
+    
+    # Widened the center column to [1, 2.5, 1] so the text fits on one line
+    col1, col2, col3 = st.columns([1, 2.5, 1])
     
     with col2:
         st.markdown(
@@ -179,29 +181,32 @@ if not st.session_state.auth:
                 <div style='display: inline-block; padding: 6px 16px; background: rgba(56, 189, 248, 0.1); border-radius: 50px; border: 1px solid rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;'>
                     System Locked
                 </div>
-                <h1 class='gradient-text' style='font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem;'>Enterprise Inventory<br>Intelligence</h1>
+                <h1 class='gradient-text' style='font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem; white-space: nowrap;'>Enterprise Inventory Intelligence</h1>
                 <p style='color: #64748b; font-size: 1.1rem; font-weight: 400;'>Advanced Forecasting & Analytics Terminal</p>
             </div>
             """, 
             unsafe_allow_html=True
         )
         
-        with st.form("login_form"):
-            st.markdown("<div style='padding: 10px 0;'>", unsafe_allow_html=True)
-            user = st.text_input("Access ID", placeholder="Enter your credentials")
-            pwd = st.text_input("Security Token", type="password", placeholder="Enter your token")
-            st.markdown("</div>", unsafe_allow_html=True)
+        # Added nested columns to keep the login form a nice compact width inside the wider column
+        _, form_col, _ = st.columns([1, 2, 1])
+        with form_col:
+            with st.form("login_form"):
+                st.markdown("<div style='padding: 10px 0;'>", unsafe_allow_html=True)
+                user = st.text_input("Access ID", placeholder="Enter your credentials")
+                pwd = st.text_input("Security Token", type="password", placeholder="Enter your token")
+                st.markdown("</div>", unsafe_allow_html=True)
+                
+                submit = st.form_submit_button("Initialize Session ⚡", use_container_width=True)
+                
+                if submit:
+                    if user == "admin" and pwd == "admin123":
+                        st.session_state.auth = True
+                        st.rerun()
+                    else:
+                        st.error("Authentication Failed. Invalid credentials.")
             
-            submit = st.form_submit_button("Initialize Session ⚡", use_container_width=True)
-            
-            if submit:
-                if user == "admin" and pwd == "admin123":
-                    st.session_state.auth = True
-                    st.rerun()
-                else:
-                    st.error("Authentication Failed. Invalid credentials.")
-        
-        st.markdown("<div style='text-align: center; margin-top: 1rem; color: #475569; font-size: 0.85rem;'>Demo Credentials: admin / admin123</div>", unsafe_allow_html=True)
+            st.markdown("<div style='text-align: center; margin-top: 1rem; color: #475569; font-size: 0.85rem;'>Demo Credentials: admin / admin123</div>", unsafe_allow_html=True)
 
 # ================= MAIN APPLICATION =================
 else:
