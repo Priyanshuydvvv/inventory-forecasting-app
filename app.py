@@ -23,7 +23,7 @@ if "chat_history" not in st.session_state:
         {"role": "assistant", "content": "Welcome to the Executive AI Assistant. How can I analyze the data for you today?"}
     ]
 
-# ================= PREMIUM STYLING =================
+# ================= HYPER-ADVANCED STYLING =================
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -32,64 +32,109 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Sleek Dark Executive Theme */
+    /* Sleek Deep Dark Theme */
     .stApp {
-        background-color: #050505;
+        background-color: #030712;
+        background-image: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.15) 0%, transparent 50%);
         color: #f8fafc;
     }
     
-    /* Glassmorphism Cards */
+    /* Premium Glassmorphism Cards */
     .glass-card {
-        background: linear-gradient(145deg, rgba(30,41,59,0.4) 0%, rgba(15,23,42,0.4) 100%);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.05);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        transition: transform 0.3s ease;
+        background: linear-gradient(145deg, rgba(17, 24, 39, 0.7) 0%, rgba(3, 7, 18, 0.9) 100%);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
     }
     
     .glass-card:hover {
-        transform: translateY(-2px);
-        border: 1px solid rgba(255,255,255,0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px -20px rgba(56, 189, 248, 0.15);
+        border-top: 1px solid rgba(56, 189, 248, 0.3);
     }
     
-    /* KPI Metrics */
+    /* Advanced KPI Metrics */
     .metric-label {
-        color: #94a3b8;
-        font-size: 0.85rem;
-        font-weight: 600;
+        color: #64748b;
+        font-size: 0.75rem;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 8px;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
     }
     
     .metric-value {
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(to right, #ffffff, #94a3b8);
+        font-size: 2.8rem;
+        font-weight: 900;
+        background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        line-height: 1.2;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
     }
     
-    /* Gradient Text for Headers */
+    /* Typography & Gradients */
     .gradient-text {
-        background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        background: linear-gradient(135deg, #38bdf8 0%, #6366f1 50%, #c084fc 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-weight: 800;
+        font-weight: 900;
+    }
+
+    /* Streamlit Input Enhancements */
+    div[data-baseweb="input"] > div {
+        background-color: rgba(15, 23, 42, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px !important;
+        transition: all 0.3s ease !important;
     }
     
-    /* Customizing the Sidebar */
+    div[data-baseweb="input"] > div:focus-within {
+        border-color: #38bdf8 !important;
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.15) !important;
+        background-color: rgba(15, 23, 42, 0.9) !important;
+    }
+
+    /* Streamlit Primary Button Overhaul */
+    button[kind="primary"] {
+        background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%) !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 10px 20px -10px rgba(79, 70, 229, 0.6) !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    button[kind="primary"]:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 15px 25px -10px rgba(79, 70, 229, 0.8) !important;
+    }
+    
+    /* Sidebar Customization */
     [data-testid="stSidebar"] {
-        background-color: #0a0a0a;
+        background-color: rgba(10, 10, 10, 0.8) !important;
+        backdrop-filter: blur(20px);
         border-right: 1px solid rgba(255,255,255,0.05);
     }
     
     hr {
-        border-color: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.05);
+    }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-down {
+        animation: fadeInDown 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -122,7 +167,7 @@ def load_data():
     
     return df
 
-# ================= AUTHENTICATION =================
+# ================= AUTHENTICATION PORTAL =================
 if not st.session_state.auth:
     st.markdown("<br><br><br><br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1.2, 1])
@@ -130,27 +175,33 @@ if not st.session_state.auth:
     with col2:
         st.markdown(
             """
-            <div style='text-align: center; margin-bottom: 2rem;'>
-                <h1 class='gradient-text' style='font-size: 3rem;'>Sparkence Global</h1>
-                <p style='color: #94a3b8; font-size: 1.1rem;'>Enterprise Inventory Intelligence</p>
+            <div class='fade-in-down' style='text-align: center; margin-bottom: 2.5rem;'>
+                <div style='display: inline-block; padding: 6px 16px; background: rgba(56, 189, 248, 0.1); border-radius: 50px; border: 1px solid rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;'>
+                    System Locked
+                </div>
+                <h1 class='gradient-text' style='font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem;'>Enterprise Inventory<br>Intelligence</h1>
+                <p style='color: #64748b; font-size: 1.1rem; font-weight: 400;'>Advanced Forecasting & Analytics Terminal</p>
             </div>
             """, 
             unsafe_allow_html=True
         )
         
         with st.form("login_form"):
-            user = st.text_input("Executive ID", placeholder="Enter username")
-            pwd = st.text_input("Access Token", type="password", placeholder="Enter password")
-            submit = st.form_submit_button("Authenticate 🔒", use_container_width=True)
+            st.markdown("<div style='padding: 10px 0;'>", unsafe_allow_html=True)
+            user = st.text_input("Access ID", placeholder="Enter your credentials")
+            pwd = st.text_input("Security Token", type="password", placeholder="Enter your token")
+            st.markdown("</div>", unsafe_allow_html=True)
+            
+            submit = st.form_submit_button("Initialize Session ⚡", use_container_width=True)
             
             if submit:
                 if user == "admin" and pwd == "admin123":
                     st.session_state.auth = True
                     st.rerun()
                 else:
-                    st.error("Invalid credentials. Access denied.")
+                    st.error("Authentication Failed. Invalid credentials.")
         
-        st.caption("Demo Mode: admin / admin123")
+        st.markdown("<div style='text-align: center; margin-top: 1rem; color: #475569; font-size: 0.85rem;'>Demo Credentials: admin / admin123</div>", unsafe_allow_html=True)
 
 # ================= MAIN APPLICATION =================
 else:
@@ -158,7 +209,7 @@ else:
     
     # --- SIDEBAR ---
     with st.sidebar:
-        st.markdown("<h2 class='gradient-text'>System Control</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 class='gradient-text'>Control Panel</h2>", unsafe_allow_html=True)
         st.markdown("---")
         
         # Global Date Filter
@@ -190,7 +241,7 @@ else:
         )
         
         st.markdown("---")
-        if st.button("Logout 🚪", use_container_width=True):
+        if st.button("End Session 🔒", use_container_width=True):
             st.session_state.auth = False
             st.rerun()
 
@@ -208,7 +259,7 @@ else:
         kpis = [
             ("Gross Revenue", f"${data['Sales'].sum():,.0f}"),
             ("Net Profit", f"${data['Profit'].sum():,.0f}"),
-            ("Total Orders", f"{len(data):,}"),
+            ("Total Volume", f"{len(data):,}"),
             ("AOV", f"${data['Sales'].mean():,.0f}")
         ]
         
@@ -227,7 +278,7 @@ else:
         
         with col_chart1:
             st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-            st.markdown("#### Revenue Trajectory")
+            st.markdown("<h4 style='margin-bottom: 1rem;'>Revenue Trajectory</h4>", unsafe_allow_html=True)
             monthly = data.set_index("Order Date").resample("MS")["Sales"].sum().reset_index()
             fig = px.area(monthly, x="Order Date", y="Sales", template="plotly_dark", 
                           color_discrete_sequence=["#38bdf8"])
@@ -237,7 +288,7 @@ else:
             
         with col_chart2:
             st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-            st.markdown("#### Category Distribution")
+            st.markdown("<h4 style='margin-bottom: 1rem;'>Category Distribution</h4>", unsafe_allow_html=True)
             cat_sales = data.groupby("Category")["Sales"].sum().reset_index()
             fig = px.pie(cat_sales, values='Sales', names='Category', hole=0.7, 
                          template="plotly_dark", color_discrete_sequence=["#38bdf8", "#818cf8", "#c084fc"])
@@ -251,23 +302,28 @@ else:
         
         col1, col2 = st.columns(2)
         with col1:
+            st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
             st.markdown("#### Top Performing Categories")
             cat_sales = data.groupby("Category")["Sales"].sum().reset_index().sort_values(by="Sales", ascending=True)
             fig = px.bar(cat_sales, x="Sales", y="Category", orientation='h', template="plotly_dark", color_discrete_sequence=["#818cf8"])
             fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
             st.plotly_chart(fig, use_container_width=True)
+            st.markdown("</div>", unsafe_allow_html=True)
             
         with col2:
+            st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
             st.markdown("#### Elite Product Registry")
             top_products = data.groupby("Product Name")["Sales"].sum().nlargest(10).reset_index()
             top_products["Sales"] = top_products["Sales"].apply(lambda x: f"${x:,.2f}")
             st.dataframe(top_products, use_container_width=True, hide_index=True)
+            st.markdown("</div>", unsafe_allow_html=True)
 
     # 3. DEMAND FORECASTING
     elif page == "Demand Forecasting":
         st.markdown("## 📈 Predictive Demand Forecasting")
         st.markdown("Utilizing linear regression matrices to project future inventory burn rates.")
         
+        st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         cat = st.selectbox("Select Target Category", data["Category"].unique())
         subset = data[data["Category"] == cat].copy()
         
@@ -288,19 +344,21 @@ else:
             future_dates = [last_date + timedelta(days=int(i)) for i in range(1, days + 1)]
             
             fig = go.Figure()
-            fig.add_trace(go.Scatter(x=ts["Order Date"], y=ts["Sales"], mode='lines', name='Historical', line=dict(color='#94a3b8')))
-            fig.add_trace(go.Scatter(x=future_dates, y=forecast, mode='lines', name='Projection', line=dict(color='#38bdf8', dash='dot')))
+            fig.add_trace(go.Scatter(x=ts["Order Date"], y=ts["Sales"], mode='lines', name='Historical', line=dict(color='#64748b', width=2)))
+            fig.add_trace(go.Scatter(x=future_dates, y=forecast, mode='lines', name='Projection', line=dict(color='#38bdf8', dash='dot', width=3)))
             
             fig.update_layout(template="plotly_dark", plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
-                              hovermode="x unified", title=f"{cat} Trajectory")
+                              hovermode="x unified", title=f"{cat} Trajectory Matrix")
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.warning("Insufficient data points in this timeframe to generate a reliable mathematical model.")
+        st.markdown("</div>", unsafe_allow_html=True)
 
     # 4. RISK MONITORING
     elif page == "Risk Monitoring":
         st.markdown("## ⚠️ Inventory Risk Monitoring")
         
+        st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         col1, col2 = st.columns([1, 2])
         with col1:
             stock = st.number_input("Current Warehouse Capacity ($)", value=100000, step=10000)
@@ -310,39 +368,41 @@ else:
             status_color = "#10b981" if risk_ratio < 50 else "#f59e0b" if risk_ratio < 85 else "#ef4444"
             status_text = "Stable" if risk_ratio < 50 else "Warning" if risk_ratio < 85 else "Critical"
             
-            st.markdown(f"### Status: <span style='color:{status_color}'>{status_text}</span>", unsafe_allow_html=True)
+            st.markdown(f"### Status Matrix: <br><span style='color:{status_color}; font-size: 2.5rem; font-weight: 800;'>{status_text}</span>", unsafe_allow_html=True)
         
         with col2:
             fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
                 value = risk_ratio,
-                title = {'text': "Supply Chain Strain Index"},
+                title = {'text': "Supply Chain Strain Index", 'font': {'color': '#94a3b8'}},
                 domain = {'x': [0, 1], 'y': [0, 1]},
                 gauge = {
-                    'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "white"},
+                    'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "#475569"},
                     'bar': {'color': status_color},
-                    'bgcolor': "rgba(255,255,255,0.1)",
+                    'bgcolor': "rgba(255,255,255,0.05)",
                     'steps': [
-                        {'range': [0, 50], 'color': "rgba(16, 185, 129, 0.2)"},
-                        {'range': [50, 85], 'color': "rgba(245, 158, 11, 0.2)"},
-                        {'range': [85, 100], 'color': "rgba(239, 68, 68, 0.2)"}],
+                        {'range': [0, 50], 'color': "rgba(16, 185, 129, 0.15)"},
+                        {'range': [50, 85], 'color': "rgba(245, 158, 11, 0.15)"},
+                        {'range': [85, 100], 'color': "rgba(239, 68, 68, 0.15)"}],
                 }
             ))
             fig.update_layout(template="plotly_dark", plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)", height=300)
             st.plotly_chart(fig, use_container_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
     # 5. AI AGENT
     elif page == "AI Agent":
-        st.markdown("## 🤖 Executive AI Agent")
+        st.markdown("## 🤖 Neural Decision Agent")
         st.caption("Natural language querying for your enterprise datasets.")
         
+        st.markdown("<div class='glass-card' style='min-height: 400px;'>", unsafe_allow_html=True)
         # Display chat messages from history
         for message in st.session_state.chat_history:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
         # Chat input
-        if prompt := st.chat_input("Ask about sales, profit, or best categories..."):
+        if prompt := st.chat_input("Query the system (e.g., 'What is the top category?')..."):
             # Add user message
             st.session_state.chat_history.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
@@ -350,8 +410,8 @@ else:
 
             # Process AI response
             with st.chat_message("assistant"):
-                with st.spinner("Analyzing matrices..."):
-                    time.sleep(0.5) # Simulate processing
+                with st.spinner("Processing data matrices..."):
+                    time.sleep(0.6) # Simulate processing
                     q = prompt.lower()
                     
                     if "sales" in q:
@@ -368,3 +428,4 @@ else:
                     
                     st.markdown(response)
                     st.session_state.chat_history.append({"role": "assistant", "content": response})
+        st.markdown("</div>", unsafe_allow_html=True)
