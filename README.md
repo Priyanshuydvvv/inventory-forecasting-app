@@ -1,42 +1,41 @@
 # 💠 Enterprise Inventory Intelligence (EII)
-### *Advanced Data Analytics & Predictive Demand Forecasting*
+### *Predictive DSS Architecture for Supply Chain Optimization*
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg.svg)](https://inventory-forecasting-app-hl3nekwuk5yu7w8rzu8kvl.streamlit.app)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-
----
-
-## 📌 Project Overview
-**Enterprise Inventory Intelligence (EII)** is a sophisticated, web-based decision support system designed to bridge the gap between raw logistics data and actionable business insights. Built with a premium **Glassmorphism UI**, the system combines Machine Learning forecasting, Heuristic Risk Monitoring, and a Neural Query Agent to optimize supply chain management.
-
----
-
-## ⚡ Core Features
-
-* **🔐 Secure Gateway:** Multi-layered authentication portal for restricted data access.
-* **📊 Executive Command Center:** Real-time tracking of Gross Revenue, Net Profit, and Order Volume.
-* **📈 Predictive Forecasting:** Uses **Linear Regression** to project future demand trends based on historical temporal data.
-* **⚠️ Supply Strain Monitoring:** Dynamic risk-assessment engine that stress-tests warehouse capacity against sales velocity.
-* **🤖 Neural Agent:** An NLP-powered interface allowing users to query data metrics using natural language.
-* **🎨 Interactive Visualizations:** High-fidelity charts and trajectory matrices powered by Plotly.
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit">
+  <img src="https://img.shields.io/badge/ML-Scikit--Learn-F7931E?logo=scikitlearn&logoColor=white" alt="Scikit-Learn">
+  <img src="https://img.shields.io/badge/Visuals-Plotly-3F4F75?logo=plotly&logoColor=white" alt="Plotly">
+</p>
 
 ---
 
-## 🛠️ Tech Stack
+## 🏗️ System Architecture
+**Enterprise Inventory Intelligence (EII)** is a sophisticated Decision Support System (DSS) engineered to transform raw transactional data into actionable executive heuristics. The system implements a reactive state-driven architecture to handle real-time data filtering, predictive modeling, and natural language querying.
 
-* **Framework:** Streamlit (Frontend & Backend)
-* **Data Processing:** Pandas, NumPy
-* **Machine Learning:** Scikit-learn (Linear Regression)
-* **Visualization:** Plotly Express & Graph Objects
-* **Deployment:** Streamlit Cloud
+### 🧩 Core Intelligence Modules
+* **Predictive Engine:** Utilizes **Ordinary Least Squares (OLS) Regression** to map temporal vectors against sales velocity for multi-day demand forecasting.
+* **Heuristic Risk Engine:** Implements a localized stress-test algorithm to calculate supply strain based on real-time inventory-to-demand ratios.
+* **Neural Interface:** A deterministic NLP layer that parses user intent for natural language data querying (Sales, Profit, and Category metrics).
+* **Glassmorphism UX:** Custom CSS-in-JS injection providing a high-fidelity, executive-grade dark interface with staggered animations.
 
 ---
 
-## 📂 Project Structure
+## 🛠️ Technical Stack
+| Layer | Technology | Implementation |
+| :--- | :--- | :--- |
+| **Frontend/UX** | **Streamlit** | Reactive SPA with custom CSS keyframe animations and Session State management. |
+| **Data Logic** | **Pandas / NumPy** | Vectorized data processing, cleaning, and time-series resampling. |
+| **ML Engine** | **Scikit-learn** | Linear Regression models for automated trend-line projection. |
+| **Visual Analytics** | **Plotly Express** | Interactive SVG and WebGL-rendered financial matrices and trajectory charts. |
 
-```plaintext
-inventory-forecasting-app/
-├── app.py              # Main Application Logic
-├── Superstore.csv      # Enterprise Dataset
-├── README.md           # Documentation
-└── requirements.txt    # Dependency List
+---
+
+## 📂 Repository Framework
+```text
+.
+├── .streamlit/             # Config and UI theme settings
+├── app.py                  # Entry point & core business logic
+├── requirements.txt        # Dependency manifest
+├── Superstore.csv          # Normalized enterprise dataset
+└── README.md               # Technical documentation
