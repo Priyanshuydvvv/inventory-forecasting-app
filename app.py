@@ -26,35 +26,37 @@ if "chat_history" not in st.session_state:
 # ================= HYPER-ADVANCED STYLING =================
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
     }
     
-    /* Sleek Deep Dark Theme */
+    /* Sleek Deep Dark Theme with Layered Gradients */
     .stApp {
-        background-color: #030712;
-        background-image: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.15) 0%, transparent 50%);
+        background-color: #020617;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.04), transparent 25%),
+            radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.04), transparent 25%);
         color: #f8fafc;
     }
     
     /* Premium Glassmorphism Cards */
     .glass-card {
-        background: linear-gradient(145deg, rgba(17, 24, 39, 0.7) 0%, rgba(3, 7, 18, 0.9) 100%);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 20px;
-        padding: 28px;
-        box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        background: linear-gradient(145deg, rgba(15, 23, 42, 0.6) 0%, rgba(2, 6, 23, 0.8) 100%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border 0.4s ease;
     }
     
     .glass-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 30px 60px -20px rgba(56, 189, 248, 0.15);
+        transform: translateY(-4px);
+        box-shadow: 0 30px 60px -15px rgba(56, 189, 248, 0.15);
         border-top: 1px solid rgba(56, 189, 248, 0.3);
     }
     
@@ -64,62 +66,80 @@ st.markdown("""
         font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.15em;
         margin-bottom: 12px;
     }
     
     .metric-value {
         font-size: 2.8rem;
         font-weight: 900;
-        background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+        background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         line-height: 1.1;
         letter-spacing: -0.02em;
     }
     
-    /* Typography & Gradients */
+    /* Animated Gradient Text for Headers */
     .gradient-text {
-        background: linear-gradient(135deg, #38bdf8 0%, #6366f1 50%, #c084fc 100%);
+        background: linear-gradient(270deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
+        background-size: 200% 200%;
+        animation: gradientShift 6s ease infinite;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 900;
+        /* Responsive font sizing to prevent cutoff */
+        font-size: clamp(2.5rem, 5vw, 4.5rem); 
+        line-height: 1.2;
+        padding-bottom: 0.2rem;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     /* Streamlit Input Enhancements */
     div[data-baseweb="input"] > div {
-        background-color: rgba(15, 23, 42, 0.6) !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        background-color: rgba(15, 23, 42, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
         border-radius: 12px !important;
         transition: all 0.3s ease !important;
     }
     
     div[data-baseweb="input"] > div:focus-within {
         border-color: #38bdf8 !important;
-        box-shadow: 0 0 20px rgba(56, 189, 248, 0.15) !important;
-        background-color: rgba(15, 23, 42, 0.9) !important;
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+        background-color: rgba(15, 23, 42, 1) !important;
     }
 
-    /* Streamlit Primary Button Overhaul */
+    /* Streamlit Primary Button Overhaul with Pulsing Glow */
     button[kind="primary"] {
         background: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%) !important;
         border: none !important;
         border-radius: 12px !important;
         padding: 0.75rem 1.5rem !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
         letter-spacing: 0.5px !important;
-        box-shadow: 0 10px 20px -10px rgba(79, 70, 229, 0.6) !important;
+        box-shadow: 0 0 15px rgba(79, 70, 229, 0.4) !important;
         transition: all 0.3s ease !important;
+        animation: pulseGlow 2.5s infinite alternate;
     }
     
+    @keyframes pulseGlow {
+        0% { box-shadow: 0 0 15px rgba(79, 70, 229, 0.4); }
+        100% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.7); }
+    }
+
     button[kind="primary"]:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 0 15px 25px -10px rgba(79, 70, 229, 0.8) !important;
+        filter: brightness(1.1);
     }
     
     /* Sidebar Customization */
     [data-testid="stSidebar"] {
-        background-color: rgba(10, 10, 10, 0.8) !important;
+        background-color: rgba(2, 6, 23, 0.9) !important;
         backdrop-filter: blur(20px);
         border-right: 1px solid rgba(255,255,255,0.05);
     }
@@ -171,28 +191,29 @@ def load_data():
 if not st.session_state.auth:
     st.markdown("<br><br><br><br>", unsafe_allow_html=True)
     
-    # Widened the center column to [1, 2.5, 1] so the text fits on one line
-    col1, col2, col3 = st.columns([1, 2.5, 1])
+    # Outer columns grant maximum width for the title text to scale
+    _, center_stage, _ = st.columns([0.5, 9, 0.5])
     
-    with col2:
+    with center_stage:
         st.markdown(
             """
-            <div class='fade-in-down' style='text-align: center; margin-bottom: 2.5rem;'>
+            <div class='fade-in-down' style='text-align: center; margin-bottom: 2rem;'>
                 <div style='display: inline-block; padding: 6px 16px; background: rgba(56, 189, 248, 0.1); border-radius: 50px; border: 1px solid rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;'>
-                    System Locked
+                    Terminal Locked
                 </div>
-                <h1 class='gradient-text' style='font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem; white-space: nowrap;'>Enterprise Inventory Intelligence</h1>
-                <p style='color: #64748b; font-size: 1.1rem; font-weight: 400;'>Advanced Forecasting & Analytics Terminal</p>
+                <div class='gradient-text'>Enterprise Inventory Intelligence</div>
+                <p style='color: #64748b; font-size: 1.1rem; font-weight: 400; margin-top: 0.5rem;'>Advanced Forecasting & Analytics Terminal</p>
             </div>
             """, 
             unsafe_allow_html=True
         )
         
-        # Added nested columns to keep the login form a nice compact width inside the wider column
-        _, form_col, _ = st.columns([1, 2, 1])
+        # Inner columns tightly constrain just the login box so it doesn't stretch too wide
+        _, form_col, _ = st.columns([1, 1.2, 1])
+        
         with form_col:
             with st.form("login_form"):
-                st.markdown("<div style='padding: 10px 0;'>", unsafe_allow_html=True)
+                st.markdown("<div style='padding: 5px 0;'>", unsafe_allow_html=True)
                 user = st.text_input("Access ID", placeholder="Enter your credentials")
                 pwd = st.text_input("Security Token", type="password", placeholder="Enter your token")
                 st.markdown("</div>", unsafe_allow_html=True)
@@ -206,7 +227,7 @@ if not st.session_state.auth:
                     else:
                         st.error("Authentication Failed. Invalid credentials.")
             
-            st.markdown("<div style='text-align: center; margin-top: 1rem; color: #475569; font-size: 0.85rem;'>Demo Credentials: admin / admin123</div>", unsafe_allow_html=True)
+            st.markdown("<div style='text-align: center; margin-top: 1.5rem; color: #475569; font-size: 0.85rem; letter-spacing: 1px;'>Demo Credentials: admin / admin123</div>", unsafe_allow_html=True)
 
 # ================= MAIN APPLICATION =================
 else:
@@ -214,7 +235,7 @@ else:
     
     # --- SIDEBAR ---
     with st.sidebar:
-        st.markdown("<h2 class='gradient-text'>Control Panel</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 class='gradient-text' style='font-size: 1.8rem;'>Control Panel</h2>", unsafe_allow_html=True)
         st.markdown("---")
         
         # Global Date Filter
