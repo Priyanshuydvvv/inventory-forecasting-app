@@ -52,7 +52,7 @@ A state-aware interface facilitating natural language querying.
 
 ## 🏗️ INSTALLATION & BOOT PROTOCOL
 
-### **1. Environment Synchronization**
+###  Environment Synchronization
 ```bash
 git clone [https://github.com/your-username/enterprise-inventory-intelligence.git](https://github.com/your-username/enterprise-inventory-intelligence.git)
 cd enterprise-inventory-intelligence
